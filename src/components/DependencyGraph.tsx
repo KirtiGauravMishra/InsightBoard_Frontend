@@ -143,7 +143,8 @@ const DependencyGraph: React.FC<DependencyGraphProps> = ({ tasks, onTaskComplete
 
     setNodes(newNodes);
     setEdges(newEdges);
-  }, [tasks, setNodes, setEdges]); // Add proper dependencies
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tasks]); // onTaskComplete is stable (wrapped in useCallback in parent)
 
   return (
     <div style={{ width: '100%', height: '600px' }}>
